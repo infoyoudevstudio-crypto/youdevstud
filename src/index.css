@@ -1,0 +1,25 @@
+/* ===== RESET GLOBAL ===== */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+/* ===== BASE APP ===== */
+body {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #ffffff;
+  color: #213547;
+}
+
+/* React root doit TOUJOURS remplir l’écran */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

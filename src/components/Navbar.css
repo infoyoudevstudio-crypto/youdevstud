@@ -1,0 +1,119 @@
+/* Navbar pleine largeur style tech/informatique */
+.navbar {
+  width: 100vw;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  font-family: "Consolas", monospace;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Masquer la navbar au scroll */
+.navbar.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Logo avec image */
+.navbar-logo {
+  cursor: pointer;
+  position: relative;
+}
+
+.navbar-logo img {
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+  position: relative;
+  top: 0;
+}
+
+/* Liens */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a {
+  color: hsl #00ff00;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.navbar-links li a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #00ffea;
+}
+
+/* Lien actif souligné */
+.navbar-links li a.active {
+  border-bottom: 2px solid  #00ff00;
+  padding-bottom: 5px;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+}
+
+
+/* Liens */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a {
+  color: #00ff00;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.navbar-links li a:hover {
+  color:   #00ff00;
+  text-shadow: 0 0 10px oklab(23.988% 0.00661 -0.14541);
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+}
+

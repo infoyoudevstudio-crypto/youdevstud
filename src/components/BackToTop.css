@@ -1,0 +1,13 @@
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 2147483647; /* MAX possible */
+  pointer-events: auto;
+  background: #00ff00;
+  color: #000;
+  border: none;
+  padding: 14px 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}

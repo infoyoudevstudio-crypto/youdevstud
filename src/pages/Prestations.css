@@ -1,0 +1,431 @@
+.prestations-page {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  padding: 60px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.prestations-header h1 {
+  color: #1a1a80;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #00ff00;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.prestations-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.prestation-card {
+  background-color: rgba(0, 128, 255, 0.2);
+  border: 1px solid #1a1a80;
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.prestation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 255, 0, 0.4);
+}
+
+.prestation-card h3 {
+  color: #00ff00;
+  margin-bottom: 10px;
+}
+
+.prestation-card p {
+  color: #fff;
+}
+
+.financial-aid-section {
+  background-color: #111;
+  color: #fff;
+  padding: 60px 20px;
+  margin-top: 60px;
+  border-top: 2px solid #00ff00;
+  display: flex;
+  justify-content: center;
+}
+
+.financial-aid-content {
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.financial-logo {
+  width: 120px;
+  height: auto;
+}
+
+.financial-logo-b {
+  width: 200px;
+  height: auto;
+}
+
+.text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.text h3 {
+  color: #00ff00;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.financial-link {
+  color: #00ff00;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.financial-link:hover {
+  color: #00ff00;
+}
+
+/* ===== SECTION PORTFOLIO ===== */
+.portfolio-section {
+  padding: 80px 20px 120px;
+  background: linear-gradient(135deg, #000000 0%, #0a0a1a 50%, #000000 100%);
+  text-align: center;
+}
+
+.portfolio-title {
+  font-size: 3rem;
+  color: #00ff00;
+  margin-bottom: 15px;
+  text-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.8),
+    0 0 40px rgba(0, 255, 0, 0.4);
+  letter-spacing: 2px;
+}
+
+.portfolio-subtitle {
+  font-size: 1.3rem;
+  color: #1a1a80;
+  margin-bottom: 60px;
+  text-shadow: 0 0 15px rgba(26, 26, 128, 0.6);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 2px solid #1a1a80;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: rgba(0, 128, 255, 0.1);
+}
+
+.portfolio-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 20px 60px rgba(0, 255, 0, 0.3),
+    0 0 40px rgba(26, 26, 128, 0.5);
+  border-color: #00ff00;
+}
+
+.portfolio-image {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-image img {
+  transform: scale(1.1);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(26, 26, 128, 0.8));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  padding: 20px;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-overlay h3 {
+  font-size: 1.8rem;
+  color: #00ff00;
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+}
+
+.portfolio-overlay p {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.portfolio-link {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #00ff00, #00ffea);
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 255, 0, 0.4);
+}
+
+.portfolio-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 255, 0, 0.6);
+  background: linear-gradient(135deg, #00ffea, #00ff00);
+}
+
+/* Responsive Portfolio */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .portfolio-title {
+    font-size: 2rem;
+  }
+  
+  .portfolio-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* ===== SECTION MODE DE FONCTIONNEMENT - BIEN SÉPARÉE ===== */
+.workflow-section {
+  padding: 60px 20px;
+  background: #1a1a50;
+  position: relative;
+  margin: 0;
+  border-top: 2px solid #00ff00;
+  border-bottom: 2px solid #00ff00;
+  box-shadow: 
+    0 -15px 50px rgba(0, 255, 0, 0.3),
+    0 15px 50px rgba(0, 255, 0, 0.3),
+    inset 0 0 100px rgba(0, 255, 0, 0.05);
+}
+
+.workflow-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.workflow-title {
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, #00ff00 0%, #00ffea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.workflow-line {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #00ff00, #1a1a80);
+  margin: 0 auto 25px;
+  border-radius: 10px;
+}
+
+.workflow-subtitle {
+  font-size: 1.3rem;
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.workflow-horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 40px;
+}
+
+.workflow-step-h {
+  flex: 1;
+  max-width: 280px;
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.15), rgba(0, 0, 0, 0.6));
+  border: 2px solid #00ff00;
+  border-radius: 20px;
+  padding: 40px 25px;
+  text-align: center;
+  position: relative;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.workflow-step-h:hover {
+  transform: translateY(-15px);
+  border-color: #00ffea;
+  box-shadow: 
+    0 25px 70px rgba(0, 255, 0, 0.4),
+    0 0 50px rgba(0, 255, 234, 0.3);
+  background: linear-gradient(135deg, rgba(0, 255, 0, 0.2), rgba(0, 0, 0, 0.8));
+}
+
+.step-number-h {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #00ff00, #00ffea);
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 900;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 5px 25px rgba(0, 255, 0, 0.6),
+    0 0 40px rgba(0, 255, 234, 0.4);
+}
+
+.step-icon-h {
+  font-size: 3.5rem;
+  margin: 30px 0 20px;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 0, 0.6));
+}
+
+.workflow-step-h h3 {
+  color: #00ff00;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.workflow-step-h p {
+  color: #e0e0e0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.workflow-connector {
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.workflow-connector::before {
+  content: '→';
+  font-size: 2.5rem;
+  color: #00ffea;
+  font-weight: bold;
+  text-shadow: 0 0 25px rgba(0, 255, 234, 0.8);
+  animation: arrowPulse 2s ease-in-out infinite;
+}
+
+@keyframes arrowPulse {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(8px);
+    opacity: 1;
+  }
+}
+
+/* Responsive Workflow */
+@media (max-width: 1200px) {
+  .workflow-horizontal {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  .workflow-connector {
+    display: none;
+  }
+  
+  .workflow-step-h {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .workflow-title {
+    font-size: 2.2rem;
+  }
+  
+  .workflow-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .workflow-step-h {
+    max-width: 100%;
+  }
+  
+  .step-icon-h {
+    font-size: 2.8rem;
+  }
+  
+  .workflow-step-h h3 {
+    font-size: 1.2rem;
+  }
+}
