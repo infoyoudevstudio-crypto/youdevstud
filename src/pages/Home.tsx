@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // ← important
 import "./Home.css";
 import "../components/Footer.css";
 
@@ -57,7 +56,12 @@ const Home: React.FC = () => {
           <div className="prestation-text from-left">
             <h2>Site vitrine</h2>
             <p>Site moderne, rapide et optimisé.</p>
-            <Link to="/contact" className="btn-devis">Demander un devis</Link>
+            <a 
+              href="mailto:info.youdevstudio@gmail.com?subject=Demande%20de%20devis%20Site%20Vitrine" 
+              className="btn-devis"
+            >
+              Demander un devis
+            </a>
           </div>
         </div>
 
@@ -68,7 +72,12 @@ const Home: React.FC = () => {
           <div className="prestation-text from-right">
             <h2>E-commerce</h2>
             <p>Boutique en ligne performante et sécurisée.</p>
-            <Link to="/contact" className="btn-devis">Demander un devis</Link>
+            <a 
+              href="mailto:info.youdevstudio@gmail.com?subject=Demande%20de%20devis%20E-commerce" 
+              className="btn-devis"
+            >
+              Demander un devis
+            </a>
           </div>
         </div>
 
@@ -79,7 +88,12 @@ const Home: React.FC = () => {
           <div className="prestation-text from-left">
             <h2>SEO & marketing</h2>
             <p>Visibilité Google et acquisition clients.</p>
-            <Link to="/contact" className="btn-devis">Demander un devis</Link>
+            <a 
+              href="mailto:info.youdevstudio@gmail.com?subject=Demande%20de%20devis%20SEO%20%26%20Marketing" 
+              className="btn-devis"
+            >
+              Demander un devis
+            </a>
           </div>
         </div>
       </section>
@@ -95,9 +109,12 @@ const Home: React.FC = () => {
               Nous créons des expériences web sur mesure qui captivent vos clients
               et propulsent votre croissance.
             </p>
-            <Link to="/contact" className="parallax-cta">
+            <a 
+              href="mailto:info.youdevstudio@gmail.com?subject=Demande%20de%20devis" 
+              className="parallax-cta"
+            >
               Démarrer votre projet
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -132,9 +149,12 @@ const Home: React.FC = () => {
               Innovation • Performance • Excellence
             </p>
 
-            <Link to="/contact" className="sparkle-cta">
+            <a 
+              href="mailto:info.youdevstudio@gmail.com?subject=Demande%20de%20devis" 
+              className="sparkle-cta"
+            >
               Créons ensemble votre succès
-            </Link>
+            </a>
           </div>
         </div>
 
