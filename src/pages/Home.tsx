@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // ← important
 import "./Home.css";
-
 import "../components/Footer.css";
 
 const Home: React.FC = () => {
@@ -29,9 +29,7 @@ const Home: React.FC = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const pageHeight = document.body.scrollHeight;
 
-      // Affiche le bouton quand on est à 90% du bas de la page
       setShowTopButton(scrollPosition > pageHeight * 0.9);
-
       revealOnScroll();
     };
 
@@ -59,7 +57,7 @@ const Home: React.FC = () => {
           <div className="prestation-text from-left">
             <h2>Site vitrine</h2>
             <p>Site moderne, rapide et optimisé.</p>
-            <a href="/contact" className="btn-devis">Demander un devis</a>
+            <Link to="/contact" className="btn-devis">Demander un devis</Link>
           </div>
         </div>
 
@@ -70,7 +68,7 @@ const Home: React.FC = () => {
           <div className="prestation-text from-right">
             <h2>E-commerce</h2>
             <p>Boutique en ligne performante et sécurisée.</p>
-            <a href="/contact" className="btn-devis">Demander un devis</a>
+            <Link to="/contact" className="btn-devis">Demander un devis</Link>
           </div>
         </div>
 
@@ -81,7 +79,7 @@ const Home: React.FC = () => {
           <div className="prestation-text from-left">
             <h2>SEO & marketing</h2>
             <p>Visibilité Google et acquisition clients.</p>
-            <a href="/contact" className="btn-devis">Demander un devis</a>
+            <Link to="/contact" className="btn-devis">Demander un devis</Link>
           </div>
         </div>
       </section>
@@ -97,32 +95,10 @@ const Home: React.FC = () => {
               Nous créons des expériences web sur mesure qui captivent vos clients
               et propulsent votre croissance.
             </p>
-            <a href="/contact" className="parallax-cta">
+            <Link to="/contact" className="parallax-cta">
               Démarrer votre projet
-            </a>
+            </Link>
           </div>
-        </div>
-      </section>
-
-      {/* ===== POURQUOI UN SITE ===== */}
-      <section className="why-website reveal">
-        <div className="why-container">
-          <h2 className="why-title">L'importance d'un site internet</h2>
-
-          <p className="why-text">
-            Aujourd'hui, un site internet est bien plus qu'une vitrine.
-            C'est votre point d'entrée principal, accessible 24h/24.
-          </p>
-
-          <p className="why-text">
-            Un site bien conçu permet de présenter vos services,
-            de capter de nouveaux clients et de vous démarquer.
-          </p>
-
-          <p className="why-text">
-            Vous êtes propriétaire de votre contenu et de votre image.
-            Votre site devient un véritable outil de croissance.
-          </p>
         </div>
       </section>
 
@@ -156,9 +132,9 @@ const Home: React.FC = () => {
               Innovation • Performance • Excellence
             </p>
 
-            <a href="/contact" className="sparkle-cta">
+            <Link to="/contact" className="sparkle-cta">
               Créons ensemble votre succès
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -179,19 +155,17 @@ const Home: React.FC = () => {
       </section>
 
       {/* ===== BOUTON BACK TO TOP ===== */}
-   {showTopButton && (
-  <button 
-    className="back-to-top" 
-    onClick={() => {
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    }}
-  >
-    ↑ Top
-  </button>
-)}
-      {/* ===== FOOTER ===== */}
-      
+      {showTopButton && (
+        <button 
+          className="back-to-top" 
+          onClick={() => {
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+          }}
+        >
+          ↑ Top
+        </button>
+      )}
     </>
   );
 };
