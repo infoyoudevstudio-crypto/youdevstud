@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export const useInertiaScroll = (friction = 0.92, speed = 1) => {
+export const useInertiaScroll = (friction = 0.92, speed = 0.1) => {
   const position = useRef(window.scrollY);
   const velocity = useRef(0);
   const raf = useRef<number | null>(null);

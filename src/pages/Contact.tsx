@@ -22,37 +22,36 @@ const Contact: React.FC = () => {
   };
 
   // Envoi du formulaire
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("Envoi en cours...");
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setStatus("Envoi en cours...");
 
-    try {
-      // Adapter les données pour correspondre à la structure PostgreSQL
-      const dataToSend = {
-        nom: form.name,
-        email: form.email,
-        message: `Téléphone: ${form.phone}\n\n${form.message}`
-      };
+  try {
+    const dataToSend = {
+      nom: form.name,
+      email: form.email,
+      message: `Téléphone: ${form.phone}\n\n${form.message}`
+    };
 
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(dataToSend),
-      });
+    const res = await fetch("http://localhost:3000/api/contact", {  // ← CHANGEZ ICI
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dataToSend),
+    });
 
-      const data = await res.json();
+    const data = await res.json();
 
-      if (data.success) {
-        setStatus("Message envoyé ✅");
-        setForm({ name: "", email: "", phone: "", message: "" });
-      } else {
-        setStatus("Erreur lors de l'envoi ❌");
-      }
-    } catch (err) {
-      console.error(err);
-      setStatus("Erreur de connexion au serveur ❌");
+    if (data.success) {
+      setStatus("Message envoyé ✅");
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } else {
+      setStatus("Erreur lors de l'envoi ❌");
     }
-  };
+  } catch (err) {
+    console.error(err);
+    setStatus("Erreur de connexion au serveur ❌");
+  }
+};
 
   return (
     <>
