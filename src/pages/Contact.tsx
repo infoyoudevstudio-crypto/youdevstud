@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
       message: `Téléphone: ${form.phone}\n\n${form.message}`
     };
 
-    const res = await fetch("http://localhost:3000/api/contact", {  // ← CHANGEZ ICI
+    const res = await fetch("https://youdevstudio-1.onrender.com/api/contact", { // ← CHANGEZ ICI
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dataToSend),
