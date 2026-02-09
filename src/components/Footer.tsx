@@ -10,7 +10,7 @@ export default function Footer() {
           <p>"Votre partenaire digital de confiance"</p>
           <p>"Du concept au succès en ligne"</p>
           <p>"Créons ensemble votre présence web"</p>
-          <p>"Basé à Baume-les-Dames, disponible pour vous rencontrer en 10 minutes".</p>
+          <p>"Basé en Bourgogne Franche Comté, disponible pour vous rencontrer rapidement".</p>
           <img src="/images/logo meta google partner.jpeg"className="footer-logo" />
              
         </div>

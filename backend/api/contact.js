@@ -1,5 +1,13 @@
-import supabase from '../src/config/supabaseClient.js';
-import transporter from '../config/email.js';
+import pool from '../config/database.js';
+import nodemailer from 'nodemailer';
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -7,49 +15,44 @@ export default async function handler(req, res) {
   }
 
   const { nom, email, message } = req.body;
+
   if (!nom || !email || !message) {
-    return res.status(400).json({ success: false, message: 'Tous les champs sont requis' });
+    return res.status(400).json({
+      success: false,
+      message: 'Tous les champs sont requis'
+    });
   }
 
-  const phoneMatch = message.match(/Téléphone:\s*([^\n]+)/);
-  const phone = phoneMatch ? phoneMatch[1].trim() : null;
-  const cleanMessage = message.replace(/Téléphone:.*(\n|\r|\r\n)?/, '').trim();
-
   try {
-    // Enregistrement Supabase
-    const { data, error } = await supabase
-      .from('contacts')
-      .insert([{ name: nom, email, phone, message: cleanMessage }])
-      .select('id')
-      .single();
+    // 1️⃣ Enregistrement en base
+    await pool.query(
+      `INSERT INTO contacts (name, email, message) VALUES ($1, $2, $3)`,
+      [nom, email, message]
+    );
 
-    if (error) {
-      console.error('❌ Supabase error:', error);
-      return res.status(500).json({ success: false, message: 'Erreur lors de l’enregistrement' });
-    }
-
-    const contactId = data.id;
-
-    // Envoi email
+    // 2️⃣ Envoi de l’email
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      subject: `🆕 Nouveau message de ${nom}`,
+      from: `"Formulaire YouDevStudio" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER, // tu reçois le mail
+      replyTo: email,
+      subject: `Nouveau message de ${nom}`,
       html: `
-        <h2>Nouveau message depuis le formulaire</h2>
         <p><strong>Nom :</strong> ${nom}</p>
         <p><strong>Email :</strong> ${email}</p>
-        <p><strong>Téléphone :</strong> ${phone || 'Non renseigné'}</p>
-        <p><strong>Message :</strong></p>
-        <p>${cleanMessage.replace(/\n/g, '<br>')}</p>
-        <hr>
-        <p><em>ID message : ${contactId}</em></p>
-      `,
+        <p><strong>Message :</strong><br/>${message}</p>
+      `
     });
 
-    return res.status(200).json({ success: true, message: 'Message enregistré et email envoyé', id: contactId });
+    return res.status(200).json({
+      success: true,
+      message: 'Message envoyé avec succès'
+    });
+
   } catch (error) {
-    console.error('❌ Erreur serveur:', error);
-    return res.status(500).json({ success: false, message: 'Erreur serveur' });
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      message: 'Erreur serveur'
+    });
   }
 }
